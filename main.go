@@ -26,6 +26,7 @@ func main() {
 		log.Fatal("ERROR: Can't init API connection: " + err.Error())
 	}
 	log.Println(bot.GetWebhookInfo())
+
 	wh, _ := tgbotapi.NewWebhookWithCert(os.Getenv("MYURL")+"/"+bot.Token, nil)
 	bot.Request(wh)
 
@@ -40,7 +41,7 @@ func main() {
 	for update := range updates {
 		if update.Message != nil {
 			if update.Message.Text == "/start" {
-				bot.Send(tgbotapi.NewMessage(update.Message.From.ID, ""))
+				bot.Send(tgbotapi.NewMessage(update.Message.From.ID, os.Getenv("STARTTEXT")))
 			} else {
 				msg := tgbotapi.NewMessage(int64(adminid), fmt.Sprintf("New message from: [ %s %s ](tg://user?id=%d)", update.Message.From.FirstName, update.Message.From.LastName, update.Message.From.ID))
 				msg.ParseMode = "MarkdownV2"
@@ -54,7 +55,7 @@ func main() {
 					log.Print("ERROR: Can't copy message to admin: " + err.Error())
 					continue
 				}
-				bot.Send(tgbotapi.NewMessage(update.Message.From.ID, ""))
+				bot.Send(tgbotapi.NewMessage(update.Message.From.ID, os.Getenv("DONETEXT")))
 			}
 		}
 	}
