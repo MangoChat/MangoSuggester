@@ -9,7 +9,7 @@
 
 ## Установка (Linux)
 
-    git clone MangoChat/MangoSuggester
+    git clone https://github.com/MangoChat/MangoSuggester
     nano settings.env 
    *В этом файле вы указываете Telegram token, Id админа, ваш URL (longpoll пока не поддерживается), приветственные сообщения
    
