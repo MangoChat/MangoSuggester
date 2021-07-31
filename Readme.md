@@ -1,6 +1,6 @@
 ﻿# MangoSuggester
 
-Простейший предложка бот для Telegram. Сделан для каналов MangoChat Communities, там же и найдете применение. 
+Простейший предложка бот для Telegram. Сделан для каналов MangoChat Communities, там же и найдете пример применения. 
 
 ## Принцип работы
 
@@ -10,6 +10,7 @@
 ## Установка (Linux)
 
     git clone https://github.com/MangoChat/MangoSuggester
+    cd MangoSuggester
     nano settings.env 
    *В этом файле вы указываете Telegram token, Id админа, ваш URL (longpoll пока не поддерживается), приветственные сообщения
    
